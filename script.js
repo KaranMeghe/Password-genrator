@@ -48,3 +48,22 @@ let genratePassword = (
     }
     return passWordCharacters.join('');
 }
+
+
+// Copy Password Button
+
+copyBtnDOM.addEventListener('click', () => {
+    const textArea = document.createElement('textarea');
+    const passwordToCopy = resultDOM.innerText;
+
+    // A case when password is empty
+    if(!passwordToCopy) return;
+
+    // Copy Functionality
+    textArea.value = passwordToCopy;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    textArea.remove();
+    alert("Password Copied to Clipboard");
+})
