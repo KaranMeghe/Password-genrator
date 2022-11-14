@@ -42,14 +42,13 @@ let generatePassword = (
     const passwordCharacters = [];
     for (let i = 0; i < characterAmount; i++) {
       const characterCode =
-        charCodes[Math.floor(Math.random() * charCodes.length)];
+      charCodes[Math.floor(Math.random() * charCodes.length)];
       passwordCharacters.push(String.fromCharCode(characterCode));
     }
     return passwordCharacters.join("");
   };
 
-  // Copy password button
- 
+  //Copy password button
 copybtnDOM.addEventListener("click", () => {
     const textarea = document.createElement("textarea");
     const passwordToCopy = resultDOM.innerText;
@@ -61,10 +60,11 @@ copybtnDOM.addEventListener("click", () => {
     textarea.select();
     document.execCommand("copy");
     textarea.remove();
-    alert("Password Copied to Clipboard");
+    alert("Password Copied to Clipboard"); 
+   
   });
 
-  // Checking the options that are selected and setting the password
+  //Checking the options that are selected and setting the password
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const characterAmount = lengthDOM.value;
@@ -79,3 +79,14 @@ form.addEventListener("submit", (e) => {
     );
     resultDOM.innerText = password;
   });
+
+//Check range
+const length = document.getElementById('length');
+length.addEventListener('input', (event) => {
+    if(length.validity.rangeOverflow){
+        length.setCustomValidity("Password should be between 4 to 20 characters");
+        length.reportValidity();
+    } else {
+        length.setCustomValidity('');
+    }
+});
