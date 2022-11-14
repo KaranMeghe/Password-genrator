@@ -46,6 +46,7 @@ h2{
     align-items: center;
     border: 1px solid #ccc;
     padding: 0 5px;
+    margin-bottom: 25px;
 }
 
 .result__container #copy{
@@ -64,6 +65,7 @@ h2{
 .result-container #result {
     word-wrap: break-word;
     max-width: calc(100% - 40px);
+    color: #fff;
   }
 
   #generate {
