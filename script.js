@@ -7,6 +7,7 @@ const numbersDOM = document.getElementById('numbers');
 const symbolsDOM = document.getElementById('symbols');
 const generatebtn = document.getElementById('generate');
 const form = document.getElementById('passwordGenratorForm');
+const length = document.getElementById('length');
 
 
 // Generating Character Codes For The Application
@@ -81,9 +82,8 @@ form.addEventListener("submit", (e) => {
   });
 
 //Check range
-const length = document.getElementById('length');
 length.addEventListener('input', (event) => {
-    if(length.validity.rangeOverflow){
+    if((length.validity.rangeOverflow) || (length.validity.rangeUnderflow)){
         length.setCustomValidity("Password should be between 4 to 20 characters");
         length.reportValidity();
     } else {
